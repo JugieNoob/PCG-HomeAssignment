@@ -32,7 +32,5 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
         }
-
-        print(GetComponent<SpriteRenderer>().bounds.size.x);
     }
 }
