@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float moveSpeed = 0.025f;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,23 +14,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && Camera.main.WorldToScreenPoint(transform.position).y < (Camera.main.pixelHeight - 16))
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + moveSpeed);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow) && Camera.main.WorldToScreenPoint(transform.position).y > 16)
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - moveSpeed);
         }
 
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && Camera.main.WorldToScreenPoint(transform.position).x > 16)
         {
             transform.position = new Vector2(transform.position.x - moveSpeed, transform.position.y);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && Camera.main.WorldToScreenPoint(transform.position).x < (Camera.main.pixelWidth - 16))
         {
             transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
         }
+
+        print(GetComponent<SpriteRenderer>().bounds.size.x);
     }
 }
