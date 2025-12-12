@@ -1,8 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     float moveSpeed = 0.025f;
+
+    [SerializeField] GameObject playerLaser;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,5 +35,15 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            ShootLaser();
+        }
+    }
+
+    void ShootLaser()
+    {
+        GameObject laser = Instantiate(playerLaser, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);//gameObject.transform
     }
 }
