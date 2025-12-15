@@ -104,3 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ea6d897ab6ce14e8fd2edbe4689155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  moveSpeed: 3
+  playerLaser: {fileID: 7651431504505376947, guid: 936a4f2229c44874888d61de18648214, type: 3}
+  laserVelocity: 5
