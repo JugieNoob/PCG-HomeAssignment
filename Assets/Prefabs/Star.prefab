@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6827255126319529549}
   - component: {fileID: 2420281417966788648}
   - component: {fileID: 141086289361929694}
+  - component: {fileID: 7554927187550185378}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -152,3 +153,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   health: 10
+--- !u!114 &7554927187550185378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875314029189212869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b306e49161348848a9d2f37d5639c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPath
+  points:
+  - {fileID: 9010266330492235306, guid: 2e9ae06dff387fa4f9b89e9d338f7e85, type: 3}
+  - {fileID: 7455703820791475511, guid: 4adc0e9726483934f9dd3096950e6664, type: 3}
+  - {fileID: 7672947099155456092, guid: bcb3153e2dcdfd442a039b76b6d889d7, type: 3}
+  - {fileID: 7076182957045531216, guid: 327223cfaafdd574d938aab69d7f6d78, type: 3}
+  moveSpeed: 2
