@@ -165,9 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b306e49161348848a9d2f37d5639c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPath
-  points:
-  - {fileID: 9010266330492235306, guid: 2e9ae06dff387fa4f9b89e9d338f7e85, type: 3}
-  - {fileID: 7455703820791475511, guid: 4adc0e9726483934f9dd3096950e6664, type: 3}
-  - {fileID: 7672947099155456092, guid: bcb3153e2dcdfd442a039b76b6d889d7, type: 3}
-  - {fileID: 7076182957045531216, guid: 327223cfaafdd574d938aab69d7f6d78, type: 3}
+  points: []
   moveSpeed: 2

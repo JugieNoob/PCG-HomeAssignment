@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -26,7 +27,10 @@ public class EnemySpawner : MonoBehaviour
         while (curEnemy < wave.GetEnemyCount())
         {
             print("spawned enemy");
-            Instantiate(wave.GetEnemy(), wave.GetPath().transform.GetChild(curEnemy).transform.position, Quaternion.identity);
+            
+            GameObject newEnemy = wave.GetEnemy();
+            newEnemy.GetComponent<EnemyPath>().SetPointsFromPath(wave.GetPath());
+            Instantiate(newEnemy, wave.GetPath().transform.GetChild(0).transform.position, Quaternion.identity);
 
             curEnemy++;
             yield return new WaitForSeconds(wave.GetTimeBetweenSpawns());

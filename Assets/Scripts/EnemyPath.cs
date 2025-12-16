@@ -15,21 +15,15 @@ public class EnemyPath : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.position = points[0].transform.position;
-        print("test1");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (transform.position == points[0].transform.position)
-        // {
-        //     canMove = true;
-        // }
-        // if (!canMove)
-        // {
-        //     return;
-        // }
+        if (points.Count == 0)
+        {
+            return;
+        }
         if (curWayPoint > points.Count)
         {
             Destroy(gameObject);
@@ -40,6 +34,16 @@ public class EnemyPath : MonoBehaviour
         {
             curWayPoint += 1;
             print(curWayPoint);
+        }
+    }
+
+    public void SetPointsFromPath(GameObject path)
+    {
+        print("setting points for enemy");
+
+        for (int i = 0; i < path.transform.childCount; i++)
+        {
+            points.Add(path.transform.GetChild(i).transform);
         }
     }
 }
