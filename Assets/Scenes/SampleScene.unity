@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 1132875170}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   waves:
   - {fileID: 11400000, guid: ee201d1ab3c2d2f41b2f4dfc1c77c181, type: 2}
+  - {fileID: 11400000, guid: d5ab734b4933a134bbc5c1cb632b10e0, type: 2}
 --- !u!1001 &1846038568498784794
 PrefabInstance:
   m_ObjectHideFlags: 0
