@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         if (other.tag == "Enemy")
         {
             playerHealth -= other.GetComponent<DamageDealer>().GetCollideDamage();
+            other.GetComponent<EnemyHealth>().DestroyEnemy();
             print(playerHealth);
         }
         else if (other.tag == "EnemyLaser")
