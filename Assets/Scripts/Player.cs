@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
         if (playerHealth <= 0)
         {
             Destroy(gameObject);
+
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadGameOver();
             return;
         }
 
