@@ -18,14 +18,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) && Camera.main.WorldToScreenPoint(transform.position).y < (Camera.main.pixelHeight - 16))
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + (moveSpeed * Time.deltaTime));
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) && Camera.main.WorldToScreenPoint(transform.position).y > 16)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y - (moveSpeed * Time.deltaTime));
-        }
+        // if (Input.GetKey(KeyCode.UpArrow) && Camera.main.WorldToScreenPoint(transform.position).y < (Camera.main.pixelHeight - 16))
+        // {
+        //     transform.position = new Vector2(transform.position.x, transform.position.y + (moveSpeed * Time.deltaTime));
+        // }
+        // else if (Input.GetKey(KeyCode.DownArrow) && Camera.main.WorldToScreenPoint(transform.position).y > 16)
+        // {
+        //     transform.position = new Vector2(transform.position.x, transform.position.y - (moveSpeed * Time.deltaTime));
+        // }
 
 
         if (Input.GetKey(KeyCode.LeftArrow) && Camera.main.WorldToScreenPoint(transform.position).x > 16)

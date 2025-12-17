@@ -7,12 +7,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D laser)
     {
-        health -= laser.GetComponent<Laser>().GetDamage();
-        if (health <= 0)
+        if (laser.tag == "PlayerLaser")
         {
-            Destroy(gameObject);
-            GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().DecreaseEnemiesLeft();
+            health -= laser.GetComponent<Laser>().GetDamage();
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().DecreaseEnemiesLeft();
+            }
+
         }
-        
+
     }
 }

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2010974603914920262}
   - component: {fileID: 6827255126319529549}
   - component: {fileID: 2420281417966788648}
-  - component: {fileID: 141086289361929694}
-  - component: {fileID: 7554927187550185378}
+  - component: {fileID: 2725013179481482745}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -140,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
---- !u!114 &141086289361929694
+--- !u!114 &2725013179481482745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,21 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7875314029189212869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1973377c784e6747ae71fd45ef5ede5, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cbffd0ebae619041b33a98a1d5c707f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  health: 10
---- !u!114 &7554927187550185378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7875314029189212869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b306e49161348848a9d2f37d5639c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyPath
-  points: []
-  moveSpeed: 2
+  m_EditorClassIdentifier: Assembly-CSharp::PointGiver
+  moveSpeed: 3
