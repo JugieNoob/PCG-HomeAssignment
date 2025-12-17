@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fde05de8805427488b9098f3b37f4b7, type: 3}
-  m_Name: Wave2
+  m_Name: Wave3
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleWaves
-  enemy: {fileID: 8657601231363686108, guid: 5ec9dee294a240e4ba7b47e246a091b2, type: 3}
-  path: {fileID: 981445915054308685, guid: b4ef43bbc9475754eac4671e2fea1513, type: 3}
-  enemyCount: 6
-  timeBetweenSpawns: 3
+  enemy: {fileID: 8657601231363686108, guid: 7f98aeb9e5005b8498a8f1ada6e55847, type: 3}
+  path: {fileID: 3496024212226154229, guid: f1cd093fa883b8a44999db2783fb0e7a, type: 3}
+  enemyCount: 7
+  timeBetweenSpawns: 2.5

@@ -26,16 +26,15 @@ public class EnemyPath : MonoBehaviour
         }
         if (curWayPoint == points.Count)
         {
-            Destroy(gameObject);
+            gameObject.GetComponent<EnemyHealth>().DestroyEnemy();
+            
             return;
         }
 
         transform.position = UnityEngine.Vector2.MoveTowards(transform.position, points[curWayPoint].transform.position, moveSpeed * Time.deltaTime);
-        print(curWayPoint + " | " + (points.Count - 1));
         if (transform.position == points[curWayPoint].transform.position)
         {
             curWayPoint += 1;
-            print(curWayPoint + " | " + (points.Count - 1));
         }
     }
 

@@ -12,11 +12,16 @@ public class EnemyHealth : MonoBehaviour
             health -= laser.GetComponent<Laser>().GetDamage();
             if (health <= 0)
             {
-                Destroy(gameObject);
-                GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().DecreaseEnemiesLeft();
+                DestroyEnemy();
             }
 
         }
 
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+        GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().DecreaseEnemiesLeft();
     }
 }
