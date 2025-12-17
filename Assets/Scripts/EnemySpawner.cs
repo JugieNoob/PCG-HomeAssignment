@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<ObstacleWaves> waves;
 
-    int curWave = 0;   
-    int enemiesLeft = 0; 
+    int curWave = 0;
+    int enemiesLeft = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +34,14 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 print("No waves left to spawn!");
+                if (SceneManager.GetActiveScene().name == "LevelOne")
+                {
+                    GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
+                }
+                else if (SceneManager.GetActiveScene().name == "LevelTwo")
+                {
+                    GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadWinScene();
+                }
             }
         }
     }
@@ -46,8 +55,8 @@ public class EnemySpawner : MonoBehaviour
         while (curEnemy < wave.GetEnemyCount())
         {
             print("spawned enemy");
-            
-            GameObject newEnemy = Instantiate(wave.GetEnemy(), wave.GetPath().transform.GetChild(0).transform.position, Quaternion.identity);          
+
+            GameObject newEnemy = Instantiate(wave.GetEnemy(), wave.GetPath().transform.GetChild(0).transform.position, Quaternion.identity);
             newEnemy.GetComponent<EnemyPath>().SetPointsFromPath(wave.GetPath());
             curEnemy++;
             yield return new WaitForSeconds(wave.GetTimeBetweenSpawns());

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject playerLaser;
     [SerializeField] float laserVelocity = 5f;
 
-    [SerializeField] int playerHealth = 100;
+    [SerializeField] public int playerHealth = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector2(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && SceneManager.GetActiveScene().name == "LevelTwo")
         {
             ShootLaser();
         }
