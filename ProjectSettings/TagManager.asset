@@ -8,6 +8,7 @@ TagManager:
   - PlayerLaser
   - Enemy
   - EnemyLaser
+  - PointsHandler
   layers:
   - Default
   - TransparentFX

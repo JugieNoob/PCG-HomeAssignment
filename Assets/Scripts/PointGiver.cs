@@ -21,6 +21,7 @@ public class PointGiver : MonoBehaviour
     {
         if (player.tag == "Player")
         {
+            GameObject.FindGameObjectWithTag("PointsHandler").GetComponent<PointsHandler>().AddPoints(5);
             Destroy(gameObject);
         }
         
