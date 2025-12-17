@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PointGiver : MonoBehaviour
@@ -31,9 +32,26 @@ public class PointGiver : MonoBehaviour
             GameObject.FindGameObjectWithTag("PointsHandler").GetComponent<PointsHandler>().AddPoints(5);
             GameObject.FindGameObjectWithTag("PointGiverSpawner").GetComponent<PointGiverSpawner>().pointGiversLeft -= 1;
 
-            Destroy(gameObject);
+
+            StartCoroutine(PlayPickup());
+
+            // 
+            GetComponent<SpriteRenderer>().enabled = false;
         }
 
+
+    }
+
+
+    IEnumerator PlayPickup()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        print("playing pickup");
+        audio.Play();
+
+        yield return audio.isPlaying;
+        
+        Destroy(gameObject);
 
     }
 }

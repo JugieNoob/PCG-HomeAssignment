@@ -111,6 +111,7 @@ MonoBehaviour:
   playerLaser: {fileID: 7651431504505376947, guid: 936a4f2229c44874888d61de18648214, type: 3}
   laserVelocity: 5
   playerHealth: 100
+  explosionParticles: {fileID: 231931642733206866, guid: 2ad3c1a38eac74147ba5b8d295945145, type: 3}
 --- !u!61 &7454714239025951146
 BoxCollider2D:
   m_ObjectHideFlags: 0

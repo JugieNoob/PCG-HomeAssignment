@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] public int playerHealth = 100;
 
+    [SerializeField] GameObject explosionParticles;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +25,9 @@ public class Player : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
-            Destroy(gameObject);
+            GameObject expParticles = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+            Destroy(expParticles, 0.5f);
+            StartCoroutine(PlayDeathSound());
 
             GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadGameOver();
             return;
@@ -66,6 +71,17 @@ public class Player : MonoBehaviour
             print(playerHealth);
         }
 
+
+    }
+
+    IEnumerator PlayDeathSound()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+
+        yield return audio.isPlaying;
+
+        Destroy(gameObject);
 
     }
 }
