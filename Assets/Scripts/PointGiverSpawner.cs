@@ -29,6 +29,11 @@ public class PointGiverSpawner : MonoBehaviour
             GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
 
         }
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
+        }
     }
 
     IEnumerator SpawnPointGivers()
@@ -38,7 +43,7 @@ public class PointGiverSpawner : MonoBehaviour
             float randX = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(16, Camera.main.pixelWidth - 16), 0)).x;
             GameObject pointGiver = Instantiate(pointGiverPrefab, new Vector2(randX, transform.position.y), Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(minimumTimetoSpawn, maximumTimetoSpawn));
-    
+
         }
 
     }

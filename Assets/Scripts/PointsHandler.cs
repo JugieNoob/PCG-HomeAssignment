@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PointsHandler : MonoBehaviour
@@ -12,6 +13,7 @@ public class PointsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.FindGameObjectWithTag("PointsDisplay").GetComponent<TMP_Text>().text = points.ToString();
 
     }
 

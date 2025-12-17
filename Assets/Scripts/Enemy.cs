@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,9 +10,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] float laserVelocity = 5f;
     [SerializeField] float timeBetweenShots = 1.5f;
 
+    bool canShoot = true;
+
     void Start()
     {
-        StartCoroutine(ShootLaser());
+        if (SceneManager.GetActiveScene().name == "LevelOne")
+        {
+            canShoot = false;
+        }
+        if (canShoot)
+        {
+            StartCoroutine(ShootLaser());
+
+        }
     }
 
     IEnumerator ShootLaser()
