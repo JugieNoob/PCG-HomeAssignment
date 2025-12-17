@@ -12,7 +12,7 @@ public class PointsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(points);
+
     }
 
     public void AddPoints(int amount)

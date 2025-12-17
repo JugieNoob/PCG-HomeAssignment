@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - EnemyLaser
   - PointsHandler
+  - SceneManager
+  - PointGiverSpawner
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,13 @@ public class PointGiver : MonoBehaviour
     void Update()
     {
         transform.position = new Vector2(transform.position.x, transform.position.y - (moveSpeed * Time.deltaTime));
+
+        if (Camera.main.WorldToScreenPoint(transform.position).y < -32)
+        {
+            GameObject.FindGameObjectWithTag("PointGiverSpawner").GetComponent<PointGiverSpawner>().pointGiversLeft -= 1;
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D player)
@@ -22,9 +29,11 @@ public class PointGiver : MonoBehaviour
         if (player.tag == "Player")
         {
             GameObject.FindGameObjectWithTag("PointsHandler").GetComponent<PointsHandler>().AddPoints(5);
+            GameObject.FindGameObjectWithTag("PointGiverSpawner").GetComponent<PointGiverSpawner>().pointGiversLeft -= 1;
+
             Destroy(gameObject);
         }
-        
+
 
     }
 }
