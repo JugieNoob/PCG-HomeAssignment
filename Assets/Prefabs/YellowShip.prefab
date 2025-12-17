@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4803936832855952730}
   - component: {fileID: 1826369535043930581}
   - component: {fileID: 5193697952083410571}
+  - component: {fileID: -1269713226317611769}
   m_Layer: 0
   m_Name: YellowShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,23 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b306e49161348848a9d2f37d5639c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPath
-  points:
-  - {fileID: 1104799733226227843, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1651590794535635520, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 2673039759731368499, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 7287404913008727770, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1104799733226227843, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1651590794535635520, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 2673039759731368499, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 7287404913008727770, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1104799733226227843, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1651590794535635520, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 2673039759731368499, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 7287404913008727770, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1104799733226227843, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 1651590794535635520, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 2673039759731368499, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  - {fileID: 7287404913008727770, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
+  points: []
   moveSpeed: 2
 --- !u!114 &1826369535043930581
 MonoBehaviour:
@@ -183,3 +168,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.24, y: 1.22}
   m_EdgeRadius: 0
+--- !u!114 &-1269713226317611769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657601231363686108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b684729f2ab57324ca35508d2bcfe235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  collideDamage: 2

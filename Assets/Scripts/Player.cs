@@ -8,11 +8,12 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject playerLaser;
     [SerializeField] float laserVelocity = 5f;
 
+    [SerializeField] int playerHealth = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             ShootLaser();
@@ -48,5 +49,21 @@ public class Player : MonoBehaviour
         GameObject laser = Instantiate(playerLaser, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);//gameObject.transform
 
         laser.GetComponent<Rigidbody2D>().linearVelocityY = laserVelocity;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print("HELLO " + other.tag);
+        if (other.tag == "Enemy")
+        {
+            playerHealth -= other.GetComponent<DamageDealer>().GetCollideDamage();
+            print(playerHealth);
+        }
+        else if (other.tag == "EnemyLaser")
+        {
+            playerHealth -= other.GetComponent<DamageDealer>().GetLaserDamage();
+            print(playerHealth);
+        }
+
+
     }
 }

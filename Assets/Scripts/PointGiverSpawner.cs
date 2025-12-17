@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -7,7 +8,8 @@ public class PointGiverSpawner : MonoBehaviour
 {
     [SerializeField] GameObject pointGiverPrefab;
     [SerializeField] int pointGiversCount = 10;
-    [SerializeField] float timeBetweenSpawns = 1.5f;
+    [SerializeField] float minimumTimetoSpawn = 1.5f;
+    [SerializeField] float maximumTimetoSpawn = 3f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,7 +28,7 @@ public class PointGiverSpawner : MonoBehaviour
         {
             float randX = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(16, Camera.main.pixelWidth - 16), 0)).x;
             GameObject pointGiver = Instantiate(pointGiverPrefab, new Vector2(randX, transform.position.y), Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            yield return new WaitForSeconds(Random.Range(minimumTimetoSpawn, maximumTimetoSpawn));
         }
 
     }
