@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fde05de8805427488b9098f3b37f4b7, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleWaves
-  enemy: {fileID: 7875314029189212869, guid: 82641a425de09e746bd4fe9d957a339c, type: 3}
+  enemy: {fileID: 8657601231363686108, guid: 42185fbdbdd03734dbf9ed15b68aad95, type: 3}
   path: {fileID: 2954439493012571884, guid: 3b99ac5a8b66aa64c8f44533b4a5bdc2, type: 3}
-  enemyCount: 3
-  timeBetweenSpawns: 1
+  enemyCount: 5
+  timeBetweenSpawns: 2

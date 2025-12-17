@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
         {
             GameObject laser = Instantiate(enemyLaser, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().linearVelocityY = -laserVelocity;
+            laser.GetComponent<EnemyLaser>().SetLaserDamage(GetComponent<DamageDealer>().GetLaserDamage());
+
             yield return new WaitForSeconds(timeBetweenShots);
         }
 

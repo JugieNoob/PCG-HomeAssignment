@@ -19,14 +19,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKey(KeyCode.UpArrow) && Camera.main.WorldToScreenPoint(transform.position).y < (Camera.main.pixelHeight - 16))
-        // {
-        //     transform.position = new Vector2(transform.position.x, transform.position.y + (moveSpeed * Time.deltaTime));
-        // }
-        // else if (Input.GetKey(KeyCode.DownArrow) && Camera.main.WorldToScreenPoint(transform.position).y > 16)
-        // {
-        //     transform.position = new Vector2(transform.position.x, transform.position.y - (moveSpeed * Time.deltaTime));
-        // }
+        if (playerHealth <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
 
         if (Input.GetKey(KeyCode.LeftArrow) && Camera.main.WorldToScreenPoint(transform.position).x > 16)
@@ -42,17 +39,17 @@ public class Player : MonoBehaviour
         {
             ShootLaser();
         }
+
+
     }
 
     void ShootLaser()
     {
-        GameObject laser = Instantiate(playerLaser, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);//gameObject.transform
-
+        GameObject laser = Instantiate(playerLaser, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().linearVelocityY = laserVelocity;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("HELLO " + other.tag);
         if (other.tag == "Enemy")
         {
             playerHealth -= other.GetComponent<DamageDealer>().GetCollideDamage();
@@ -60,7 +57,8 @@ public class Player : MonoBehaviour
         }
         else if (other.tag == "EnemyLaser")
         {
-            playerHealth -= other.GetComponent<DamageDealer>().GetLaserDamage();
+            playerHealth -= other.GetComponent<EnemyLaser>().GetLaserDamage();
+            print("Enemy laser hit");
             print(playerHealth);
         }
 

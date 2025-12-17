@@ -47,10 +47,8 @@ public class EnemySpawner : MonoBehaviour
         {
             print("spawned enemy");
             
-            GameObject newEnemy = wave.GetEnemy();
+            GameObject newEnemy = Instantiate(wave.GetEnemy(), wave.GetPath().transform.GetChild(0).transform.position, Quaternion.identity);          
             newEnemy.GetComponent<EnemyPath>().SetPointsFromPath(wave.GetPath());
-            Instantiate(newEnemy, wave.GetPath().transform.GetChild(0).transform.position, Quaternion.identity);
-
             curEnemy++;
             yield return new WaitForSeconds(wave.GetTimeBetweenSpawns());
         }

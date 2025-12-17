@@ -6,8 +6,8 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class EnemyPath : MonoBehaviour
 {
-    [SerializeField] List<Transform> points;
-    [SerializeField] float moveSpeed = 2;
+    List<Transform> points = new List<Transform>();
+    [SerializeField] float moveSpeed = 0.5f;
     
     // bool canMove = false;
 
@@ -24,22 +24,24 @@ public class EnemyPath : MonoBehaviour
         {
             return;
         }
-        if (curWayPoint > points.Count)
+        if (curWayPoint == points.Count)
         {
             Destroy(gameObject);
+            return;
         }
 
-        transform.position = UnityEngine.Vector2.Lerp(transform.position, points[curWayPoint].transform.position, Time.deltaTime * moveSpeed);
+        transform.position = UnityEngine.Vector2.MoveTowards(transform.position, points[curWayPoint].transform.position, moveSpeed * Time.deltaTime);
+        print(curWayPoint + " | " + (points.Count - 1));
         if (transform.position == points[curWayPoint].transform.position)
         {
             curWayPoint += 1;
-            print(curWayPoint);
+            print(curWayPoint + " | " + (points.Count - 1));
         }
     }
 
     public void SetPointsFromPath(GameObject path)
     {
-        print("setting points for enemy");
+        print("Setting points for enemy");
 
         for (int i = 0; i < path.transform.childCount; i++)
         {
