@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7766437311894896926}
   - component: {fileID: 6057511376686926141}
+  - component: {fileID: 6026521927372106593}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: EnemySpawner
@@ -49,3 +50,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5ab734b4933a134bbc5c1cb632b10e0, type: 2}
   - {fileID: 11400000, guid: b54b6ed7e8deaf342b627d331395faa9, type: 2}
   - {fileID: 11400000, guid: 1d4ddcfdce4b4794691fccc6949ef2d4, type: 2}
+--- !u!114 &6026521927372106593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913736067826900027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a1534b4ed6cc040a8bbe419ddca018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransferToNextScene

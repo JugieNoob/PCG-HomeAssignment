@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TransferToNextScene : MonoBehaviour
 {
@@ -6,5 +7,15 @@ public class TransferToNextScene : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnLoad;
+    }
+
+    void OnLoad(Scene scene, LoadSceneMode mode)
+    {
+        print(scene.name);
+        if (scene.name == "WinScene")
+        {
+            Destroy(gameObject);
+        }
     }
 }

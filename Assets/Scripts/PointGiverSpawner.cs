@@ -29,6 +29,8 @@ public class PointGiverSpawner : MonoBehaviour
             GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
 
         }
+
+        
     }
 
     IEnumerator SpawnPointGivers()
