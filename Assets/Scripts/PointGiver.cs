@@ -51,7 +51,7 @@ public class PointGiver : MonoBehaviour
 
         yield return audio.isPlaying;
         
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
 
     }
 }

@@ -25,12 +25,8 @@ public class Player : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
-            GameObject expParticles = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-            Destroy(expParticles, 0.5f);
-            StartCoroutine(PlayDeathSound());
-
-            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadGameOver();
-            return;
+            StartCoroutine(PlayDeathSequence());
+            // print("Hello");
         }
 
 
@@ -80,8 +76,18 @@ public class Player : MonoBehaviour
         audio.Play();
 
         yield return audio.isPlaying;
+    }
 
-        Destroy(gameObject);
+    IEnumerator PlayDeathSequence()
+    {
+        playerHealth = 1;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        GameObject expParticles = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        Destroy(expParticles, 0.5f);
+        StartCoroutine(PlayDeathSound());
 
+        yield return new WaitForSeconds(2f);
+        GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadGameOver();
     }
 }
