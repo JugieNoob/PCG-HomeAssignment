@@ -8,7 +8,7 @@ public class EnemyPath : MonoBehaviour
 {
     List<Transform> points = new List<Transform>();
     [SerializeField] float moveSpeed = 0.5f;
-    
+
     // bool canMove = false;
 
     int curWayPoint = 1;
@@ -26,8 +26,10 @@ public class EnemyPath : MonoBehaviour
         }
         if (curWayPoint == points.Count)
         {
-            gameObject.GetComponent<EnemyHealth>().DestroyEnemy();
-            
+            GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().DecreaseEnemiesLeft();
+            Destroy(gameObject);
+
+
             return;
         }
 

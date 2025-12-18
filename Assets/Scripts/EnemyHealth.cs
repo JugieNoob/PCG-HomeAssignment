@@ -25,12 +25,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
         GameObject expParticles = Instantiate(explosionParticles, transform.position, Quaternion.identity);
         Destroy(expParticles, 0.5f);
-        StartCoroutine(PlayDeathSound());
-        GetComponent<SpriteRenderer>().enabled = false;
 
         GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().DecreaseEnemiesLeft();
+        StartCoroutine(PlayDeathSound());
+
     }
 
     IEnumerator PlayDeathSound()
@@ -38,8 +39,8 @@ public class EnemyHealth : MonoBehaviour
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
 
-        yield return audio.isPlaying;
-
+        yield return new WaitForSeconds(1f);
+        print("deleting enemy");
         Destroy(gameObject);
 
     }
