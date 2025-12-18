@@ -12,6 +12,6 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Slider>().value = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().playerHealth;
+        gameObject.GetComponent<Slider>().value = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().playerHealth;
     }
 }

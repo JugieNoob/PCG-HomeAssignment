@@ -13,7 +13,7 @@ public class TransferToNextScene : MonoBehaviour
     void OnLoad(Scene scene, LoadSceneMode mode)
     {
         print(scene.name);
-        if (scene.name == "WinScene")
+        if (scene.name == "WinScene" || scene.name == "GameOver")
         {
             Destroy(gameObject);
         }
