@@ -23,15 +23,12 @@ public class PointGiverSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(pointGiversLeft);
-        // if (pointGiversLeft <= 0)
-        // {
-        //     print("No point givers left, loading next scene...");
-        //     // GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
+        if (pointGiversLeft <= 0)
+        {
+            print("No point givers left, loading next scene...");
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
 
-        // }
-
-
+        }
     }
 
     IEnumerator SpawnPointGivers()
