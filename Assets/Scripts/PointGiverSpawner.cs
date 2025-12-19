@@ -16,25 +16,27 @@ public class PointGiverSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pointGiversLeft = pointGiversCount;
+
         StartCoroutine(SpawnPointGivers());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pointGiversLeft <= 0)
-        {
-            print("No point givers left, loading next scene...");
-            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
+        print(pointGiversLeft);
+        // if (pointGiversLeft <= 0)
+        // {
+        //     print("No point givers left, loading next scene...");
+        //     // GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
 
-        }
+        // }
 
-        
+
     }
 
     IEnumerator SpawnPointGivers()
     {
+        pointGiversLeft = pointGiversCount;
         for (int i = 0; i < pointGiversCount; i++)
         {
             float randX = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(16, Camera.main.pixelWidth - 16), 0)).x;

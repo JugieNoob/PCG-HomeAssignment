@@ -19,13 +19,13 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // print(SceneManager.GetActiveScene().name);
         if (curWave == waves.Count)
         {
             return;
         }
         if (enemiesLeft == 0)
         {
-            print("No enemies left, trying to spawn next wave...");
             curWave++;
             if (curWave < waves.Count)
             {
@@ -33,15 +33,12 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                print("No waves left to spawn!");
-                if (SceneManager.GetActiveScene().name == "LevelOne")
-                {
-                    GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadLevelTwo();
-                }
-                else if (SceneManager.GetActiveScene().name == "LevelTwo")
+                if (SceneManager.GetActiveScene().name == "LevelTwo")
                 {
                     GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneLoader>().LoadWinScene();
                 }
+
+
             }
         }
     }
@@ -49,12 +46,10 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnWave(ObstacleWaves wave)
     {
         enemiesLeft = wave.GetEnemyCount();
-        print("Starting coroutine");
 
         int curEnemy = 0;
         while (curEnemy < wave.GetEnemyCount())
         {
-            print("spawned enemy");
 
             GameObject newEnemy = Instantiate(wave.GetEnemy(), wave.GetPath().transform.GetChild(0).transform.position, Quaternion.identity);
             newEnemy.GetComponent<EnemyPath>().SetPointsFromPath(wave.GetPath());
@@ -66,5 +61,7 @@ public class EnemySpawner : MonoBehaviour
     public void DecreaseEnemiesLeft()
     {
         enemiesLeft -= 1;
+        print("decreasing enemy count");
+        print("Enemies left: " + enemiesLeft);        
     }
 }

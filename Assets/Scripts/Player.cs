@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -26,7 +25,6 @@ public class Player : MonoBehaviour
         if (playerHealth <= 0)
         {
             StartCoroutine(PlayDeathSequence());
-            // print("Hello");
         }
 
 
@@ -58,13 +56,10 @@ public class Player : MonoBehaviour
         {
             playerHealth -= other.GetComponent<DamageDealer>().GetCollideDamage();
             other.GetComponent<EnemyHealth>().DestroyEnemy();
-            print(playerHealth);
         }
         else if (other.tag == "EnemyLaser")
         {
             playerHealth -= other.GetComponent<EnemyLaser>().GetLaserDamage();
-            print("Enemy laser hit");
-            print(playerHealth);
         }
 
 

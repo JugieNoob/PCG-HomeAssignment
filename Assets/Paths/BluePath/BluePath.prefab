@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8634557856675783597}
-  - component: {fileID: 7656143565425927134}
   m_Layer: 0
   m_Name: BluePath
   m_TagString: Untagged
@@ -37,18 +36,6 @@ Transform:
   - {fileID: 7825902214914991975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7656143565425927134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981445915054308685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a1534b4ed6cc040a8bbe419ddca018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TransferToNextScene
 --- !u!1001 &3472082722762530645
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,14 +29,14 @@ public class PointGiver : MonoBehaviour
     {
         if (player.tag == "Player")
         {
+            print("picked up pickup");
             GameObject.FindGameObjectWithTag("PointsHandler").GetComponent<PointsHandler>().AddPoints(5);
             GameObject.FindGameObjectWithTag("PointGiverSpawner").GetComponent<PointGiverSpawner>().pointGiversLeft -= 1;
 
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
 
             StartCoroutine(PlayPickup());
-
-            // 
-            GetComponent<SpriteRenderer>().enabled = false;
         }
 
 
@@ -46,12 +46,11 @@ public class PointGiver : MonoBehaviour
     IEnumerator PlayPickup()
     {
         AudioSource audio = GetComponent<AudioSource>();
-        print("playing pickup");
         audio.Play();
 
-        yield return audio.isPlaying;
-        
-        Destroy(gameObject, 1f);
+        yield return new WaitForSeconds(1f);
+
+        Destroy(gameObject);
 
     }
 }

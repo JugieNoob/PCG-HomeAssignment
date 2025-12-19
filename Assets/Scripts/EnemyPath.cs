@@ -42,8 +42,6 @@ public class EnemyPath : MonoBehaviour
 
     public void SetPointsFromPath(GameObject path)
     {
-        print("Setting points for enemy");
-
         for (int i = 0; i < path.transform.childCount; i++)
         {
             points.Add(path.transform.GetChild(i).transform);

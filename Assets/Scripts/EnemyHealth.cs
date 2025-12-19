@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
     public void DestroyEnemy()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         GameObject expParticles = Instantiate(explosionParticles, transform.position, Quaternion.identity);
         Destroy(expParticles, 0.5f);
 
@@ -40,7 +41,6 @@ public class EnemyHealth : MonoBehaviour
         audio.Play();
 
         yield return new WaitForSeconds(1f);
-        print("deleting enemy");
         Destroy(gameObject);
 
     }
